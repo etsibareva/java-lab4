@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0" style="-fx-border-color: grey;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="16.0" layoutY="14.0" prefHeight="35.0" prefWidth="20.0" text="A" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="88.0" layoutY="14.0" prefHeight="35.0" prefWidth="20.0" text="B" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="164.0" layoutY="14.0" prefHeight="35.0" prefWidth="20.0" text="C" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="14.0" prefHeight="35.0" prefWidth="20.0" text="D" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="la" layoutX="16.0" layoutY="50.0" prefHeight="35.0" prefWidth="53.0" text="-" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb" layoutX="88.0" layoutY="50.0" prefHeight="35.0" prefWidth="53.0" text="-" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lc" layoutX="164.0" layoutY="50.0" prefHeight="35.0" prefWidth="47.0" text="-" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="ld" layoutX="235.0" layoutY="50.0" prefHeight="35.0" prefWidth="47.0" text="-" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

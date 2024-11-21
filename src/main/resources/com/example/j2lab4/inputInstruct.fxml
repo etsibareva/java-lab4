@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="229.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="81.0" layoutY="52.0" text="instruction">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="122.0" text="args">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="instr" layoutX="39.0" layoutY="78.0" />
+      <TextField fx:id="arg1" layoutX="64.0" layoutY="150.0" prefHeight="25.0" prefWidth="103.0" />
+      <TextField fx:id="arg2" layoutX="62.0" layoutY="189.0" prefHeight="25.0" prefWidth="103.0" />
+      <Button layoutX="76.0" layoutY="238.0" mnemonicParsing="false" onAction="#inputInstruction" prefHeight="46.0" prefWidth="76.0" text="Ввод">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="13.0" layoutY="14.0" text="Добавление инструкции">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

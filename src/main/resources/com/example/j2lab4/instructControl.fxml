@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="instrName" layoutX="141.0" layoutY="24.0" prefHeight="27.0" prefWidth="57.0" text="instr">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="arg1" layoutX="219.0" layoutY="24.0" prefHeight="27.0" prefWidth="33.0" text="-">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="arg2" layoutX="283.0" layoutY="24.0" prefHeight="27.0" prefWidth="40.0" text="-">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="8.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeInstruction" prefHeight="41.0" prefWidth="40.0" text="X">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="48.0" layoutY="17.0" mnemonicParsing="false" onAction="#replaceLeft" prefHeight="41.0" prefWidth="40.0" text="&lt;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="88.0" layoutY="17.0" mnemonicParsing="false" onAction="#replaceRight" prefHeight="41.0" prefWidth="40.0" text="&gt;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
