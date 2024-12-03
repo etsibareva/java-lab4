@@ -13,7 +13,7 @@ public class mainController {
     Pane regState, ramState, statistic, scrollInstruct;
 
     MProgram prog = BProgram.build();
-    ICpu cpu = BCpu.build();
+    MCpu cpu = BCpu.build();
 
     @FXML
     VBox allStatisticVBox;
@@ -27,23 +27,23 @@ public class mainController {
 
         fxmlLoader = new FXMLLoader(appMain.class.getResource("regStateControl.fxml"));
         fxmlLoader.setController(new regStateController());
-        cpu.addObserver(fxmlLoader.getController());
         regState = fxmlLoader.load();
+        cpu.addObserver(fxmlLoader.getController());
 
         FXMLLoader f1 = new FXMLLoader(appMain.class.getResource("ramStateControl.fxml"));
         f1.setController(new ramStateController(prog));
-        cpu.addObserver(f1.getController());
         ramState = f1.load();
+        cpu.addObserver(f1.getController());
 
         fxmlLoader = new FXMLLoader(appMain.class.getResource("statisticControl.fxml"));
         fxmlLoader.setController(new statisticController());
-        prog.addObserver(fxmlLoader.getController());
         statistic = fxmlLoader.load();
+        prog.addObserver(fxmlLoader.getController());
 
         fxmlLoader = new FXMLLoader(appMain.class.getResource("scrollControl.fxml"));
         fxmlLoader.setController(new instrScrollController());
-        prog.addObserver(fxmlLoader.getController());
         scrollInstruct = fxmlLoader.load();
+        prog.addObserver(fxmlLoader.getController());
 
         allStatisticVBox.setSpacing(5);
         allStatisticVBox.getChildren().addAll(regState, ramState, statistic);
@@ -55,7 +55,6 @@ public class mainController {
     @FXML
     public void addInstruction() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(appMain.class.getResource("inputInstruct.fxml"));
-
         fxmlLoader.setController(new instrInputController(prog));
         Stage stage = new Stage();
         Scene scene = new Scene(fxmlLoader.load());

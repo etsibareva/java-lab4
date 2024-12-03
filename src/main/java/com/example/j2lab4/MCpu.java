@@ -8,27 +8,22 @@ public class MCpu implements ICpu {
 
     ArrayList<ICpuObserver> allObserver = new ArrayList<>();
 
-    @Override
     public void eventCall(){
         allObserver.forEach(action->action.event(this));
     }
 
-    @Override
     public void addObserver(ICpuObserver obs){
-        allObserver.add(obs);
+        allObserver.add(obs); eventCall();
     }
 
-    @Override
     public int getReg(int ind) {
         return registers[ind];
     }
 
-    @Override
     public int getRam(int address) {
         return ram.getMem(address);
     }
 
-    @Override
     public void exec(Command command) throws Exception {
         if (command.str.length == 0) throw new Exception("No command");
 

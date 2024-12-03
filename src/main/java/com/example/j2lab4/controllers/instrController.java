@@ -28,8 +28,10 @@ public class instrController {
             instrName.setTextFill(Color.RED);
         }
 
-        arg1.setText(command.getArg1());
-        arg2.setText(command.getArg2());
+        if (c.getInstr().equals("ld") || c.getInstr().equals("st") || c.getInstr().equals("init")) {
+            arg1.setText(command.getArg1());
+            arg2.setText(command.getArg2());
+        }
     }
 
     @FXML

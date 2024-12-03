@@ -7,19 +7,20 @@ public class Main {
         Executer e1 = new Executer(cpu);
 
         MProgram prog = new MProgram();
-        prog.add(new Command("init", "10", "102"));
-        prog.add(new Command("init", "11", "10"));
-        prog.add(new Command("ld", "A", "10"));
-        prog.add(new Command("ld", "B", "11"));
-        prog.add(new Command("add"));
-        //prog.add(new Command("add"));
-        //prog.add(new Command("mult"));
-        //prog.add(new Command("add"));
-        //prog.add(new Command("mult"));
-        //prog.add(new Command("add"));
-        //prog.add(new Command("mult"));
-        prog.add(new Command("print"));
-
+        /*
+            prog.add(new Command("init", "10", "102"));
+            prog.add(new Command("init", "11", "10"));
+            prog.add(new Command("ld", "A", "10"));
+            prog.add(new Command("ld", "B", "11"));
+            prog.add(new Command("add"));
+            //prog.add(new Command("add"));
+            //prog.add(new Command("mult"));
+            //prog.add(new Command("add"));
+            //prog.add(new Command("mult"));
+            //prog.add(new Command("add"));
+            //prog.add(new Command("mult"));
+            prog.add(new Command("print"));
+        */
         System.out.println("Result: ");
         try {
             //e1.run(prog);

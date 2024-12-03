@@ -4,17 +4,18 @@ import java.util.stream.Collectors;
 
 public class MProgram {
 
-    ArrayList<Command>       arrayList     = new ArrayList<>();
+    ArrayList<Command>       commandList   = new ArrayList<>();
     ArrayList<IProgObserver> allObserver   = new ArrayList<>();
     ArrayList<Integer>       addSpace      = new ArrayList<>();
     Executer                 executer;
     private int              indRunCommand = 0;
+    DAO dao                                = new DAO(commandList);
 
     // вспомогательняе методы
 
     public void               setExec(Executer exec)         { executer = exec; }
 
-    public ArrayList<Command> copy()                         { return new ArrayList<>(arrayList);  }
+    public ArrayList<Command> copy()                         { return new ArrayList<>(commandList);  }
 
     public boolean            isRunAddress(int i)            { return addSpace.contains(i); }
 
@@ -22,35 +23,34 @@ public class MProgram {
 
     public void               eventCall()                    { allObserver.forEach(action->action.event(this)); }
 
-    public void               addObserver(IProgObserver obs) { allObserver.add(obs); }
+    public void               addObserver(IProgObserver obs) { allObserver.add(obs); eventCall(); }
 
 
     // функциональные методы
-    public void add        (Command c) { arrayList.add(c); eventCall(); }
+    public void add        (Command c) { dao.add(c); eventCall();    }
 
-    public void removeInstr(Command c) { arrayList.remove(c); eventCall(); }
+    public void removeInstr(Command c) { dao.remove(c); eventCall(); }
 
-    public void left       (Command c) { Collections.swap(arrayList, arrayList.indexOf(c), arrayList.indexOf(c)-1); eventCall(); }
+    public void left       (Command c) { dao.left(c); eventCall();   }
 
-    public void right      (Command c) { Collections.swap(arrayList, arrayList.indexOf(c), arrayList.indexOf(c)+1); eventCall(); }
+    public void right      (Command c) { dao.right(c); eventCall();  }
 
-    public void reload     (ICpu cpu)
-    {
+    public void reload     (MCpu cpu) {
         indRunCommand = 0;
-        for (Command c : arrayList) c.clrRun();
+        for (Command c : commandList) c.clrRun();
         addSpace.clear();
         cpu.eventCall();
         eventCall();
     }
 
-    public void runStep(ICpu cpu) {
-        if (indRunCommand < arrayList.size()) {
-            Command command = arrayList.get(indRunCommand);
+    public void runStep(MCpu cpu) {
+        if (indRunCommand < commandList.size()) {
+            Command command = commandList.get(indRunCommand);
             try
             {
                 executer.run(command);
 
-                if (indRunCommand > 0) { arrayList.get(indRunCommand - 1).clrRun(); }
+                if (indRunCommand > 0) { commandList.get(indRunCommand - 1).clrRun(); }
                 command.setRun();
 
                 indRunCommand++;
@@ -71,7 +71,7 @@ public class MProgram {
     // методы внутреннего подсчёта
 
     private Map<String, Long> getCountCommands() {
-        return arrayList
+        return commandList
                 .stream()
                 .collect(Collectors.groupingBy(Command::getInstr, Collectors.counting()));
     }
@@ -90,7 +90,7 @@ public class MProgram {
 
     // задача 2
     public void addressRange() {
-        ArrayList<Integer> address = arrayList.stream()
+        ArrayList<Integer> address = commandList.stream()
                 .filter((command) ->
                         switch (command.str[0]) {
                             case "ld", "st", "init" -> true;

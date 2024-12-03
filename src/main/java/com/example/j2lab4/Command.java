@@ -3,8 +3,12 @@ package com.example.j2lab4;
 public class Command {
     String[] str;
     boolean isRun = false;
+    int id = -1;
 
     public boolean isRun(){return isRun;}
+
+    public int  getID() {return id;}
+    public void setID(int _id) { id = _id;}
 
     Command(String a) {
         str = new String[1];
